@@ -20,7 +20,7 @@ captcha = False
 views_sent = 0
 
 print(pyfiglet.figlet_format("TIBOT 1.0", font="slant"))
-print("[1]. Views\n[2]. Hearts | UNAVAILABLE\n[3]. Comment Hearts | UNAVAILABLE\n[4]. Shares | UNAVAILABLE\n[5]. Followers | UNAVAILABLE\n[6]. Livestream [VS+ Likes] | UNAVAILABLE\n")
+print("[1]. Views\n[2]. Likes | UNAVAILABLE\n[3]. Shares | UNAVAILABLE\n[4]. Followers | UNAVAILABLE\n[5]. Comment Likes | UNAVAILABLE\n[6]. Livestream [VS+ Likes] | UNAVAILABLE\n")
 CHOICE = int(input("[>] Select choice: "))
 
 if CHOICE == 1:
