@@ -27,3 +27,11 @@ Because this bot is in a very early stage, currently only the viewbotting featur
 
 # DISCLAIMER
 This piece of software was made purely for educational purposes. USE AT YOUR OWN RISK. TikTok's Terms of Service clearly states that any kind of botting which could result in boosting your page's metrics or popularity MAY result in punishment up to a permanent ban.
+
+
+## [![Repography logo](https://images.repography.com/logo.svg)](https://repography.com) / Recent activity [![Time period](https://images.repography.com/30404609/goldieczr/TIBOT/recent-activity/c480bf70b0e406f8611d4a314857f51d_badge.svg)](https://repography.com)
+[![Timeline graph](https://images.repography.com/30404609/goldieczr/TIBOT/recent-activity/c480bf70b0e406f8611d4a314857f51d_timeline.svg)](https://github.com/goldieczr/TIBOT/commits)
+[![Issue status graph](https://images.repography.com/30404609/goldieczr/TIBOT/recent-activity/c480bf70b0e406f8611d4a314857f51d_issues.svg)](https://github.com/goldieczr/TIBOT/issues)
+[![Pull request status graph](https://images.repography.com/30404609/goldieczr/TIBOT/recent-activity/c480bf70b0e406f8611d4a314857f51d_prs.svg)](https://github.com/goldieczr/TIBOT/pulls)
+[![Trending topics](https://images.repography.com/30404609/goldieczr/TIBOT/recent-activity/c480bf70b0e406f8611d4a314857f51d_words.svg)](https://github.com/goldieczr/TIBOT/commits)
+[![Top contributors](https://images.repography.com/30404609/goldieczr/TIBOT/recent-activity/c480bf70b0e406f8611d4a314857f51d_users.svg)](https://github.com/goldieczr/TIBOT/graphs/contributors)
