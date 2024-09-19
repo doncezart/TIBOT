@@ -5,12 +5,14 @@ from time import sleep
 from os import system, name
 from selenium import webdriver, common
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--disable-notifications")
 chrome_options.add_argument("--mute-audio")
 chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
-client_version = "1.2"
+client_version = "1.2.1"
 
 
 def beautify(arg):
@@ -34,7 +36,7 @@ def viewbot():
     while captcha:
         # Waits for the captcha to be completed and attempts to find the proper button.
         try:
-            driver.find_element(By.XPATH,'/html/body/div[4]/div[1]/div[3]/div/div[4]/div/button').click()
+            driver.find_element(By.XPATH,'/html/body/div[6]/div/div[2]/div/div/div[6]/div/button').click()
         except (common.exceptions.NoSuchElementException, common.exceptions.ElementClickInterceptedException):
             continue
         driver.set_window_position(-10000, 0)
@@ -43,7 +45,7 @@ def viewbot():
 
     # Pastes the URL into the "Enter video URL" textbox.
     try:
-        driver.find_element(By.XPATH,'/html/body/div[4]/div[5]/div/form/div/input').send_keys(VIDEO_URL)
+        driver.find_element(By.XPATH,'/html/body/div[10]/div/form/div/input').send_keys(VIDEO_URL)
     except (common.exceptions.ElementNotInteractableException):
         print('[!] Followbot is not available at the moment, try something else')
         driver.quit()
@@ -51,13 +53,13 @@ def viewbot():
 
     while True:
         # Clicks the "Search" button.
-        driver.find_element(By.XPATH, '/html/body/div[4]/div[5]/div/form/div/div/button').click()
+        driver.find_element(By.XPATH, '/html/body/div[10]/div/form/div/div/button').click()
         sleep(3)
         if views_count>0:
             try:
                 print('[!] Cycle completed, generating metrics')
                 new_views = views_count
-                views_count = driver.find_element(By.XPATH,'/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').text
+                views_count = driver.find_element(By.XPATH,'/html/body/div[10]/div/div/div[1]/div/form/button').text
                 views_count = int(views_count.replace(',',''))
                 new_views = views_count - new_views
                 total_views = total_views + new_views
@@ -68,7 +70,7 @@ def viewbot():
             
         else:
             try:
-                views_count = driver.find_element(By.XPATH,'/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').text
+                views_count = driver.find_element(By.XPATH,'/html/body/div[10]/div/div/div[1]/div/form/button').text
                 views_count = int(views_count.replace(',',''))
                 print(f'[!] Views counter: {views_count:,}')
             except common.exceptions.NoSuchElementException:
@@ -81,7 +83,7 @@ def viewbot():
                 except common.exceptions.NoSuchElementException:
                     try:
                         print('[!] Cooldown is still active')
-                        thedelay = driver.find_element(By.XPATH,'/html/body/div[4]/div[5]/div/div/h4').text
+                        thedelay = driver.find_element(By.XPATH,'/html/body/div[10]/div/div/span[1]').text
                         minutes = int(thedelay[12:-43])
                         seconds = int(thedelay[24:-30])
                         cooldown = minutes* 60 + seconds
@@ -100,7 +102,10 @@ def viewbot():
 
         try:
             # Clicks the "Send Views" button.
-            driver.find_element(By.XPATH, '/html/body/div[4]/div[5]/div/div/div[1]/div/form/button').click()
+            sleep(2)
+            driver.find_element(By.XPATH,'/html/body/div[10]/div/div/div[1]/div/form/button').send_keys(Keys.TAB)
+            driver.find_element(By.XPATH,'/html/body/div[10]/div/div/div[1]/div/form/button').send_keys(Keys.ENTER)
+            sleep(2)
         except common.exceptions.NoSuchElementException:
             driver.quit()
             print(f'\n[!] Invalid URL, please try again')
@@ -112,7 +117,7 @@ def viewbot():
                 cycle_count += 1
                 os.system(f'title [TIBOT] - Views Count: {beautify(views_count)} ^| Total boosted: +{total_views:,} ^| Cycles: {cycle_count}')
                 sleep(5)
-                thedelay = driver.find_element(By.XPATH,'/html/body/div[4]/div[5]/div/div/h4').text
+                thedelay = driver.find_element(By.XPATH,'/html/body/div[10]/div/div/span[1]').text
                 minutes = int(thedelay[12:-43])
                 seconds = int(thedelay[24:-30])
                 cooldown = minutes* 60 + seconds
